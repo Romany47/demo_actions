@@ -1,0 +1,17 @@
+name: test-flow-name
+
+ on: push
+
+ jobs:
+   test-flow:
+     name: Test flow base
+     runs-on: ubuntu-latest
+     steps:
+       - name: Checkout code
+         uses: actions/checkout@v2
+
+       - name: run test-flow
+         uses: github/test-flow@v3
+         env:
+           DEFAULT_BRANCH: main
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
